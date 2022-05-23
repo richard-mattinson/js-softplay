@@ -51,6 +51,36 @@ function softEnter(adultEnter, childEnter) {
   return true;
   }
 
+function softLeave(adultLeave, childLeave) {
+  if (childLeave > adultLeave) {
+    return false;
+  }
+
+  if (adults - adultLeave < children - childLeave) {
+    return false;
+  }
+
+  if (adults - adultLeave < 0) {
+    return false;
+  }
+
+  if (children - childLeave < 0) {
+    return false;
+  }
+
+  else { adults = adults - adultLeave;
+  children = children - childLeave;
+  return true;
+  }
+}
+
+function softOccupancy() {
+ return {
+   adults: adults,
+   children: children
+ }
+}
+
 softEnter(1, 1)
 
 softEnter(1, 2)
@@ -82,36 +112,6 @@ softLeave(1, 2)
 
 softEnter(2, 2)
 softLeave(2, 2)
-
-function softLeave(adultLeave, childLeave) {
-  if (childLeave > adultLeave) {
-    return false;
-  }
-
-  if (adults < children) {
-    return false;
-  }
-
-  if (adults < 1) {
-    return false;
-  }
-
-  if (children < 1) {
-    return false;
-  }
-
-  else { adults = adults - adultLeave;
-  children = children - childLeave;
-  return true;
-  }
-}
-
-function softOccupancy() {
- return {
-   adults: adults,
-   children: children
- }
-}
 
 // console.log(adults);
 // console.log(children);
