@@ -52,22 +52,69 @@ function softEnter(adultEnter, childEnter) {
   }
 
 softEnter(1, 1)
+
 softEnter(1, 2)
+
 softEnter(2, 1)
 
+softEnter(2, 1)
+softLeave(1, 0)
+
+softEnter(1, 1)
+softLeave(1, 0)
+
+softEnter(2, 2)
+softLeave(1, 0)
+
+softEnter(1, 1)
+softLeave(1, 2)
+
+softEnter(1, 1)
+softLeave(2, 1)
+
+softEnter(0, 1)
+
+softEnter(1, 1)
+softLeave(0, 1)
+
+softEnter(2, 2)
+softLeave(1, 2)
+
+softEnter(2, 2)
+softLeave(2, 2)
+
 function softLeave(adultLeave, childLeave) {
-  
+  if (childLeave > adultLeave) {
+    return false;
+  }
+
+  if (adults < children) {
+    return false;
+  }
+
+  if (adults < 1) {
+    return false;
+  }
+
+  if (children < 1) {
+    return false;
+  }
+
+  else { adults = adults - adultLeave;
+  children = children - childLeave;
+  return true;
+  }
 }
 
 function softOccupancy() {
  return {
-   adults: 0,
-   children: 0
+   adults: adults,
+   children: children
  }
 }
 
-console.log(adults);
-console.log(children);
+// console.log(adults);
+// console.log(children);
 console.log(Object.values(softOccupancy()));
 
 // TODO: Change the undefined values below to the name of your functions
